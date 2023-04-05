@@ -15,13 +15,15 @@ class INotifier {
 	public:
 		INotifier(const string& message) : message_(message) {}
 		virtual void Notify(const string& message) const = 0;
+
+	protected:			
 		const string message_;	
 };
 	
 
 class SmsNotifier : public INotifier{
 	public:
-    	SmsNotifier(const string& number) : INotifier(message_), number_(number){}
+    		SmsNotifier(const string& number) : INotifier(message_), number_(number){}
 		
 		void Notify(const string& message) const override {
 			SendSms(number_, message);
