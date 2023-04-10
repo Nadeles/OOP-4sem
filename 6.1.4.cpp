@@ -1,29 +1,40 @@
 #include<string>
 #include<vector>
 #include<map>
+#include<set>
 #include<iostream>
 
 using namespace std;
 
+template <typename T>
+ostream& operator<<(ostream& stream, const set<T>& tset) {
+	stream << "[ ";
+	for (auto elem : tset) {
+		stream << elem << " ";
+	}
+	stream << "]";
+	return stream;
+}
+
 template <typename First, typename Second>
 ostream& operator<<(ostream& stream, map<First, Second>& tmap) {
-	stream << "{ ";
 	for (pair<First, Second> elem : tmap) {
-		stream << "{" << elem.first << ", " << elem.second << "} ";
+		stream << "{" << elem.first << ", " << elem.second << "}" << endl;
 	}
-	stream << "}";
 	return stream;
 }
 
 int main() {
-	vector<string> vstr = {"blast", "house", "stamp", "list", "apperture"};
-	map<string, string> dict = {};
+	vector<string> vstr = {"blast", "house", "stamp", "list", "apperture", "boom", "", "store", "prompt", "calendar", "list",
+							 "hello", "water", "trombone", "door", "carpet", "song", "pancake", "steak", "door", "house"};
+	
+	map<char, set<string> > dict;
 	for (string elem : vstr) {
-		string tmp = elem;
-		dict.insert({elem.erase(1), tmp});	
+		if (elem != "") {
+			dict[elem[0]].insert(elem);
+		}
 	}
 	
 	cout << dict << endl;
-
 	return 0;
 }

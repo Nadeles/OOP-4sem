@@ -5,11 +5,11 @@
 
 using namespace std;
 
-vector<string> split(string str) {
+vector<string> split(const string str) {
 	auto iter_begin = begin(str);
 	auto iter_end = end(str);
 	
-	vector<string> vstr = {};
+	vector<string> {};
 
 	auto frst_space = find(iter_begin, iter_end, ' ');
 

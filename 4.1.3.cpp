@@ -4,7 +4,7 @@
 
 using namespace std;
 
-ostream& operator<<(ostream& stream, vector<string>& vstring) {
+ostream& operator<<(ostream& stream, const vector<string>& vstring) {
 	stream << "[" << vstring[0];
 	for (int i = 1; i < vstring.size(); i++) {
 		stream << ", " << vstring[i];

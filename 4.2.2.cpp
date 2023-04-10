@@ -6,7 +6,7 @@
 using namespace std;
 
 template <typename T>
-ostream& operator<<(ostream& stream, vector<T>& tvect) {
+ostream& operator<<(ostream& stream, const vector<T>& tvect) {
 	stream << "[" << tvect[0];
 	for (int i = 1; i < tvect.size(); i++) {
 		stream << ", " << tvect[i];
@@ -16,9 +16,9 @@ ostream& operator<<(ostream& stream, vector<T>& tvect) {
 }
 
 template <typename First, typename Second>
-ostream& operator<<(ostream& stream, map<First, Second>& tmap) {
+ostream& operator<<(ostream& stream, const map<First, Second>& tmap) {
 	stream << "{ ";
-	for (pair<First, Second> elem : tmap) {
+	for (const auto elem : tmap) {
 		stream << "{" << elem.first << ", " << elem.second << "} ";
 	}
 	stream << "}";
